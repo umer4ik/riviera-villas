@@ -1,0 +1,66 @@
+.t-title {
+  font-size: 40px;
+  line-height: 95%;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #000;
+}
+
+.t-text {
+  @include helvetica;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 170%;
+  color: #3f3f3f;
+}
+
+.t-post {
+  &__img {
+    display: block;
+  }
+  &__text {
+    position: relative;
+    padding-left: 160px;
+    margin-top: 55px;
+    @include helvetica;
+    h1 {
+      font-family: 'neue', sans-serif;
+      font-size: 40px;
+      margin-bottom: 32px;
+      font-weight: normal;
+      line-height: 89%;
+    }
+    blockquote {
+      @include helvetica;
+      font-size: 23px;
+      line-height: 115%;
+      color: #000;
+      border-top: 2px solid #E5E5E5;
+      border-bottom: 2px solid #E5E5E5;
+      padding: 18px 0;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+    p {
+      @include helvetica;
+      margin-bottom: 1em;
+      margin-top: 1em;
+      font-size: 14px;
+      line-height: 170%;
+      color: #3f3f3f;
+    }
+    img {
+      display: inline-block;
+      vertical-align: middle;
+      margin-top: 40px;
+      margin-bottom: 30px;
+    }
+  }
+  &__count {
+    font-family: 'neue', sans-serif;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}

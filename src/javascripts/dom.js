@@ -51,6 +51,22 @@ const getDOM = () => ({
     bottomLine: qsa('.e__line--rotate .invisible-char'),
     button: qs('.e .button'),
   },
+  values: {
+    self: qs('.values'),
+    list: qs('.values__list'),
+    title: qsa('.values__title .invisible-char'),
+    description: qs('.values__description'),
+    listItems: qsa('.values__list .value'),
+  },
+  services: {
+    self: qs('.services'),
+    title: qsa('.services__title .invisible-char'),
+    description: qs('.services__description'),
+    nav: qs('.services__nav'),
+    service: qs('.services__service'),
+    navButtons: qsa('.services__btn'),
+    listItems: qsa('.service__container'),
+  },
 });
 
 export default getDOM;

@@ -205,6 +205,34 @@ $(() => {
       .to(button, animationConfig, '-=0.5');
   };
 
+  const animateValues = () => {
+    const {
+      title,
+      description,
+      listItems,
+    } = DOM.values;
+    const tl = new TimelineLite();
+    tl
+      .to(title, animationConfig)
+      .to(description, animationConfig, '-=0.5')
+      .to(listItems, { ...animationConfig, stagger: 0.1 }, '-=0.1');
+  };
+
+  const animateService = () => {
+    const {
+      title,
+      description,
+      nav,
+      service,
+    } = DOM.services;
+    const tl = new TimelineLite();
+    tl
+      .to(title, animationConfig)
+      .to(description, animationConfig, '-=0.5')
+      .to(nav, animationConfig, '-=0.5')
+      .to(service, animationConfig, '-=0.1');
+  };
+
   load()
     .then(() => {
       animateTitle();
@@ -254,6 +282,27 @@ $(() => {
     }
   });
 
+  $(DOM.values.list).on('click', '.value', ({ currentTarget }) => {
+    const $el = $(currentTarget);
+    const modalId = $el.attr('data-modal');
+    $(`#${modalId}`).modal({
+      fadeDuration: 200,
+      blockerClass: 'jquery-modal jquery-modal--h100',
+    });
+  });
+
+  $(DOM.services.navButtons).on('click', ({ currentTarget }) => {
+    const $el = $(currentTarget);
+    if ($el.hasClass('active')) return;
+    $(DOM.services.listItems).removeClass('active');
+    $(DOM.services.navButtons).removeClass('active');
+    const serviceIndex = $el.attr('data-service');
+    const service = $(DOM.services.listItems).filter(`[data-service="${serviceIndex}"]`);
+    console.log(service.get(0));
+    $el.addClass('active');
+    service.addClass('active');
+  });
+
   $(DOM.vToV.videos).on('click', function onVideoClick(e) {
     const place = $(this).find('.v-to-v__video-place');
     if ($(this).find('.play').hasClass('visible')) {
@@ -292,6 +341,12 @@ $(() => {
     }
     if ($(DOM.land.self).offset().top < winHeight) {
       animateLand();
+    }
+    if ($(DOM.values.self).offset().top < winHeight) {
+      animateValues();
+    }
+    if ($(DOM.services.self).offset().top < winHeight) {
+      animateService();
     }
     if ($(DOM.e.self).offset().top < winHeight) {
       animateE();

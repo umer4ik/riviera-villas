@@ -1,0 +1,94 @@
+.value {
+  position: relative;
+  padding: 40px 40px 40px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  @include faded;
+  &:first-child {
+    padding-top: 0;
+  }
+  &::after,
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 200%;
+    z-index: 1;
+  }
+  &::before {
+    background-color: #e5e5e5;
+  }
+  &::after {
+    transition: transform .7s $easing;
+    background-color: #aaae7f;
+    transform: scaleX(0);
+    transform-origin: 100% 50%;
+    left: auto;
+    right: -100%;
+  }
+  &:hover {
+    &::after {
+      transform-origin: 0% 50%;
+      transform: scaleX(1);
+      left: 0;
+      right: auto;
+    }
+  }
+  &__title {
+    font-size: 58px;
+    line-height: 95%;
+    text-transform: uppercase;
+    transition: color .35s $easing;
+    .value:hover & {
+      color: $gold;
+    }
+  }
+  &__img-container {
+    position: absolute;
+    left: 386px;
+    height: 285px;
+    width: 214px;
+    pointer-events: none;
+  }
+  &__img {
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+    top: 0;
+    width: 0;
+    right: 0;
+    height: 100%;
+    background-position: 100% 50%;
+    transition: width .35s $easing;
+    z-index: 2;
+    .value:hover & {
+      width: 100%;
+      left: 0;
+      right: auto;
+      background-position: 0 50%;
+    }
+  }
+  &__more {
+    @include helvetica;
+    font-size: 14px;
+    line-height: 110%;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: all .35s $easing;
+    .value:hover & {
+      color: $gold;
+      transform: translate(10px, 0);
+      svg path {
+        fill: $gold;
+      }
+    }
+    svg path {
+      fill: $black;
+      transition: all .35s $easing;
+    }
+  }
+}

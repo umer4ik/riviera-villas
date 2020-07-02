@@ -1,0 +1,106 @@
+.service {
+  position: relative;
+  min-height: 704px;
+  overflow: hidden;
+  &__container {
+    background: url('../images/sbg.png') 50% 50% no-repeat;
+    background-size: cover;
+    border: 1px solid transparent;
+    overflow: hidden;
+    border-left: none;
+    transition:
+      background-color .35s $easing,
+      border-color .35s $easing,
+      opacity .1s $easing,
+      transform .35s $easing;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    right: 0;
+    bottom: 0;
+    transform: translate(100%, 0);
+    display: flex;
+    justify-content: flex-end;
+    opacity: 0;
+    &--1 {
+      background-color: #e6e8e5;
+    }
+    &--2 {
+      background-color: #fcead4;
+    }
+    &.active {
+      transform: none;
+      opacity: 1;
+    }
+    .service:hover & {
+      background-position: 1000px 1000px;
+      background-color: #fff;
+      border-color: rgba(#000, 0.1);
+    }
+  }
+  &__inner {
+    padding: 40px;
+    max-width: 717px;
+  }
+  &__img {
+    transform: translate(20px, 161px) scale(0.68);
+    transition: transform .7s $easing;
+    transition-delay: .1s;
+    .service:hover & {
+      transition-delay: 0s;
+      transform: none;
+    }
+  }
+  &__title {
+    transform: translate(-107px, -212px) scale(0.72);
+    transition: transform .7s $easing;
+    transition-delay: .1s;
+    .service:hover & {
+      transition-delay: 0s;
+      transform: none;
+    }
+  }
+  &__count {
+    opacity: 0;
+    transition: opacity .7s $easing;
+    transition-delay: .1s;
+    .service:hover & {
+      transition-delay: 0s;
+      opacity: 1;
+    }
+  }
+  &__description {
+    opacity: 0;
+    transition: opacity .7s $easing;
+    transition-delay: .1s;
+    .service:hover & {
+      transition-delay: 0s;
+      opacity: 1;
+    }
+  }
+  &__btn {
+    position: absolute;
+    right: 90px;
+    bottom: 195px;
+    pointer-events: none;
+    transition-delay: .1s;
+    .service:hover & {
+      transition-delay: 0s;
+      transform: translate(0, 100px);
+      opacity: 0;
+    }
+  }
+  &__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    transform: translate(0, 100px);
+    transition: transform .35s $easing;
+    .service:hover & {
+      transition-delay: .7s;
+      transform: none;
+    }
+  }
+}

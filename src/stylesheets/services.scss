@@ -1,0 +1,49 @@
+.services {
+  padding-top: 220px;
+  padding-bottom: 220px;
+  &__inner {
+    display: flex;
+    align-items: flex-start;
+  }
+  &__description {
+    @include faded;
+  }
+  &__service {
+    max-width: 50%;
+    flex-grow: 1;
+    @include faded;
+  }
+  &__text {
+    max-width: 435px;
+    margin-left: 80px;
+  }
+  &__title {
+    margin-bottom: 20px;
+  }
+  &__nav {
+    display: flex;
+    margin-top: 30px;
+    @include faded;
+  }
+  &__btn {
+    background-color: #fff;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid rgba(#000, .1);
+    color: #313131;
+    transition: all .35s $easing;
+    font-size: 22px;
+    cursor: pointer;
+    margin-right: 15px;
+    &:focus {
+      outline: none;
+    }
+    &:hover,
+    &.active {
+      background-color: $blue;
+      border-color: $blue;
+      color: #fff;
+    }
+  }
+}

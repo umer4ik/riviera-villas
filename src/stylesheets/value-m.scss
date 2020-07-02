@@ -1,0 +1,13 @@
+.value-m {
+  height: 100vh;
+  position: absolute;
+  width: 723px;
+  max-width: 723px;
+  left: calc(50% - 720px + 160px + 429px);
+  top: 0;
+  &__inner {
+    padding: 40px;
+    overflow: auto;
+    height: 100%;
+  }
+}

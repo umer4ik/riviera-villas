@@ -1,0 +1,30 @@
+.values {
+  width: 100%;
+  overflow: hidden;
+  &__container {
+    padding-top: 220px;
+    padding-bottom: 220px;
+    @include section;
+  }
+  &__inner {
+    padding-left: 160px;
+    display: flex;
+    align-items: flex-start;
+  }
+  &__text {
+    max-width: 324px;
+    flex-grow: 1;
+  }
+  &__description {
+    @include faded;
+  }
+  &__title {
+    margin-bottom: 24px;
+  }
+  &__list {
+    position: relative;
+    flex-grow: 1;
+    margin-left: 105px;
+    margin-top: -3px;
+  }
+}
