@@ -1,0 +1,46 @@
+.blocker {
+  z-index: 5;
+}
+.feedback {
+  width: 80vw;
+  max-width: 600px;
+  @media screen and (min-width: 1510px) {
+    max-width: 1510px;
+  }
+  &__img {
+    width: 100%;
+  }
+  &__row {
+    padding: 40px;
+    display: flex;
+  }
+  &__col {
+    width: 50%;
+    flex-grow: 1;
+    &:first-child {
+      @media screen and (max-width: 1509px) {
+        display: none;
+      }
+    }
+  }
+}
+.modal {
+  border-radius: 0;
+  padding: 0;
+}
+.modal a.close-modal {
+  width: 68px;
+  height: 68px;
+  background-color: #fff;
+  background-image: url('../images/cross.svg');
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  top: 0;
+  right: 0;
+  background-size: 12px;
+  @media screen and (min-width: 1510px) {
+    right: -98px;
+    top: 30px;
+  }
+}

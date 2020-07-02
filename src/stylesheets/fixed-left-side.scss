@@ -1,0 +1,11 @@
+.fixed-left-side {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 3;
+  &__inner {
+    @include section;
+    position: relative;
+  }
+}

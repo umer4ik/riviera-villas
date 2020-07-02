@@ -1,0 +1,47 @@
+.reloading {
+  margin-top: -98px;
+  position: relative;
+  overflow: visible;
+  padding-top: 1px;
+  &__container {
+    @include section;
+    position: relative;
+  }
+  &__inner {
+    position: absolute;
+    top: 50vh;
+    left: 0;
+    padding-left: 160px;
+    width: 100%;
+    transform: translate(0, -100%);
+    padding-right: 40px;
+  }
+  &__title {
+    font-weight: 300;
+    font-size: 80px;
+    line-height: 95%;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: #000;
+    margin-left: -5px;
+    margin-bottom: 30px;
+  }
+  &__description-text {
+    font-size: 14px;
+    line-height: 110%;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__bg {
+    height: 770px;
+    background: url('../images/bg1.png') no-repeat 50% 50%;
+    background-size: cover;
+    width: calc(50% + 720px - 160px);
+    margin-left: calc(50% - 720px + 160px);
+    margin-top: calc(50vh + 20px);
+    overflow: hidden;
+    @include hidden-bg;
+  }
+}

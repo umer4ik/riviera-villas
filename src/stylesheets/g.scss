@@ -1,0 +1,63 @@
+.g {
+  background: url('../images/gold-bg.png') no-repeat 100% 0 $gold;
+  background-size: cover;
+  min-height: 1500px;
+  position: relative;
+  color: #fff;
+  padding-bottom: 200px;
+  @include clearfix;
+  &__img {
+    position: absolute;
+    right: 0;
+    top: 200px;
+  }
+  &__inner {
+    @include section;
+    position: relative;
+  }
+  &__green {
+    background: url('../images/ellipse.svg') no-repeat #1D4934;
+    background-size: cover;
+    background-position: 179px -107px;
+    position: absolute;
+    width: 433px;
+    height: 626px;
+    left: 160px;
+    top: 647px;
+    padding: 28px 37px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-transform: uppercase;
+    .split-text {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  &__line {
+    &--rotate {
+      transform: rotate(180deg);
+    }
+  }
+  &__white {
+    max-width: 435px;
+    float: right;
+    overflow: hidden;
+    margin-top: 1100px;
+    margin-right: 160px;
+  }
+  &__title {
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    font-size: 40px;
+    line-height: 95%;
+  }
+  &__description {
+    @include helvetica;
+    font-size: 14px;
+    line-height: 170%;
+    margin-top: 22px;
+    @include faded;
+  }
+}

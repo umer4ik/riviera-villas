@@ -1,0 +1,53 @@
+.button {
+  display: inline-block;
+  padding: 0 30px;
+  height: 70px;
+  background: #fff;
+  border-radius: 100px;
+  color: $black;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  margin-top: 30px;
+  &:not(.button--visible) {
+    @include faded;
+  }
+  &--blue {
+    background-color: $blue;
+    color: #fff;
+    margin-top: 0;
+  }
+  img {
+    transform: translate(0, -3px);
+  }
+  &:focus {
+    outline: none;
+  }
+  &__button-text {
+    overflow: hidden;
+    display: inline-block;
+    position: relative;
+    span {
+      color: transparent;
+    }
+    &::before,
+    &::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 0;
+      top: 0;
+      transition: transform .35s $easing;
+    }
+    &::after {
+      transform: translate(0, 100%);
+    }
+    .button:hover & {
+      &::before {
+        transform: translate(0, -100%);
+      }
+      &::after {
+        transform: none;
+      }
+    }
+  }
+}

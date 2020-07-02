@@ -1,0 +1,51 @@
+.footer {
+  display: flex;
+  @include section;
+  padding: 33px 40px;
+  &__link {
+    color: $black;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    &::before {
+      position: absolute;
+      content: '';
+      height: 1px;
+      width: 100%;
+      background-color: $black;
+      bottom: 0;
+      left: 0;
+      transform: scaleX(0);
+      transform-origin: 100% 50%;
+      transition: transform .35s $easing;
+    }
+    &:hover {
+      &::before {
+        transform-origin: 0 50%;
+        transform: scaleX(1);
+      }
+    }
+  }
+  &__col {
+    width: 25%;
+    max-width: 25%;
+    min-width: 25%;
+    .footer__link:not(:last-child) {
+      margin-right: 28px;
+    }
+    &:nth-child(2) {
+      display: flex;
+      justify-content: center;
+      width: 50%;
+      max-width: 50%;
+      min-width: 50%;
+      span {
+        margin-right: 28px;
+      }
+    }
+    &:nth-child(3) {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}

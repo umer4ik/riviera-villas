@@ -1,0 +1,10 @@
+.land {
+  height: 100vh;
+  background: url('../images/view.jpg') 50% 50% no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 115px;
+}

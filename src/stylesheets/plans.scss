@@ -1,0 +1,26 @@
+.plans {
+  @include section;
+  &__inner {
+    padding-left: 160px;
+    padding-top: 200px;
+    padding-bottom: 50px;
+    display: flex;
+    align-items: flex-start;
+  }
+  &__title {
+    margin-right: 125px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    font-size: 40px;
+    line-height: 95%;
+    white-space: nowrap;
+  }
+  &__description {
+    color: #3f3f3f;
+    @include helvetica;
+    font-size: 14px;
+    line-height: 170%;
+    @include faded;
+    width: 463px;
+  }
+}

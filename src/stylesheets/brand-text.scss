@@ -1,0 +1,31 @@
+.brand-text {
+  max-width: 435px;
+  float: right;
+  overflow: hidden;
+  margin-top: 100px;
+  &__top {
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 110%;
+    .split-text {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+  &__header {
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    font-size: 40px;
+    line-height: 95%;
+    margin-top: 72px;
+  }
+  &__description {
+    @include helvetica;
+    font-size: 14px;
+    line-height: 170%;
+    color: #484848;
+    margin-top: 22px;
+    @include faded;
+  }
+}

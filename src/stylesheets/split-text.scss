@@ -1,0 +1,22 @@
+.split-text,
+.split-word {
+  > span {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    .visible-char,
+    .visible-word {
+      color: transparent;
+      // color: rgba(#f00, 0.1);
+    }
+    .invisible-char,
+    .invisible-word {
+      user-select: none;
+      position: absolute;
+      transform: translate(0, 50%);
+      opacity: 0;
+      top: 0;
+      left: 0;
+    }
+  }
+}

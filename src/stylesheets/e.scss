@@ -1,0 +1,37 @@
+.e {
+  background: url('../images/gold-bg.png') no-repeat 100% 0 $gold;
+  background-size: cover;
+  padding: 167px 0;
+  color: #fff;
+  &__inner {
+    max-width: 792px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  &__logo {
+    display: inline-block;
+    vertical-align: middle;
+    @include faded;
+  }
+  .split-text {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__line {
+    font-size: 14px;
+    text-transform: uppercase;
+    line-height: 110%;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    &--rotate {
+      transform: rotate(180deg);
+    }
+  }
+  &__text {
+    font-size: 52px;
+    line-height: 110%;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+}

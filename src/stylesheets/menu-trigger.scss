@@ -1,0 +1,21 @@
+.menu-trigger {
+  position: absolute;
+  left: 40px;
+  top: 50vh;
+  margin-top: -27px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: 1px solid #DBDBDB;
+  &__serif {
+    position: absolute;
+    width: 14px;
+    height: 1px;
+    left: 19px;
+    top: 23px;
+    background: #000;
+    &:last-child {
+      top: 27px;
+    }
+  }
+}
