@@ -69,41 +69,41 @@ const imgAnimationConfig = {
   stagger: 0.05,
 };
 
-const animateTitle = () => {
-  const splitTitle = document.querySelectorAll('.reloading__title .split-text .invisible-char');
-  const splitDescription = document.querySelectorAll('.reloading__description .split-text .invisible-char');
-  const bg = document.querySelector('.reloading__bg');
-  const tl = new TimelineLite();
-  // const tlDescription = new TimelineLite();
-  tl.to(
-    splitTitle,
-    animationConfig,
-  ).to(
-    splitDescription,
-    animationConfig,
-    '-=1',
-  ).to(
-    bg,
-    {
-      ...animationConfig,
-      duration: 2,
-    },
-    '-=0.5',
-  );
-};
-
 const load = () => new Promise((resolve) => {
   setTimeout(
     () => {
       resolve();
     },
-    2000,
+    1000,
   );
 });
 
 $(() => {
   splitText();
   const DOM = getDOM();
+
+  const animateTitle = () => {
+    const splitTitle = document.querySelectorAll('.reloading__title img');
+    const splitDescription = document.querySelectorAll('.reloading__description .split-text .invisible-char');
+    const bg = document.querySelector('.reloading__bg');
+    const tl = new TimelineLite();
+    // const tlDescription = new TimelineLite();
+    tl.to(
+      splitTitle,
+      animationConfig,
+    ).to(
+      splitDescription,
+      animationConfig,
+      '-=1',
+    ).to(
+      bg,
+      {
+        ...animationConfig,
+        duration: 2,
+      },
+      '-=0.5',
+    );
+  };
 
   const animateBrand = () => {
     const {

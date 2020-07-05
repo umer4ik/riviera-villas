@@ -17,17 +17,24 @@
     padding-right: 40px;
   }
   &__title {
-    font-weight: 300;
-    font-size: 80px;
-    line-height: 95%;
-    letter-spacing: .04em;
-    text-transform: uppercase;
-    color: #000;
-    margin-left: -5px;
-    margin-bottom: 30px;
+    height: 145px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 68px;
+    max-width: 543px;
+  }
+  &__title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    img {
+      opacity: 0;
+      transform: translate(0, 100%);
+    }
   }
   &__description-text {
-    font-size: 14px;
+    font-size: 15px;
     line-height: 110%;
     text-transform: uppercase;
     display: flex;
