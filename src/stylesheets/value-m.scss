@@ -6,9 +6,24 @@
   left: calc(50% - 720px + 160px + 429px);
   top: 50%;
   transform: translate(0, -50%);
+  @include laptop {
+    left: calc(50% - 720px + 429px);
+  }
+  @include tablet {
+    width: 90%;
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    max-height: 100%;
+    overflow: hidden;
+  }
   &__inner {
     padding: 40px;
     overflow: auto;
     max-height: 100vh;
+    @include tablet {
+      padding: 20px;
+    }
   }
 }

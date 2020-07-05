@@ -13,7 +13,13 @@ window.$ = $;
 require('jquery-modal');
 
 const splitText = () => {
-  const elements = document.querySelectorAll('.split-text');
+  let splitTextSelector = '.split-text';
+  let splitWordSelector = '.split-word';
+  if ($(window).width() <= 1024) {
+    splitTextSelector = '.split-text-mobile';
+    splitWordSelector = '.split-word-mobile';
+  }
+  const elements = document.querySelectorAll(splitTextSelector);
   if (elements) {
     for (let i = 0; i < elements.length; i += 1) {
       const element = elements[i];
@@ -28,7 +34,7 @@ const splitText = () => {
       }
     }
   }
-  const wordElements = document.querySelectorAll('.split-word');
+  const wordElements = document.querySelectorAll(splitWordSelector);
   if (wordElements) {
     for (let i = 0; i < wordElements.length; i += 1) {
       const element = wordElements[i];
@@ -74,7 +80,7 @@ const load = () => new Promise((resolve) => {
     () => {
       resolve();
     },
-    1000,
+    100,
   );
 });
 
@@ -150,26 +156,15 @@ $(() => {
       .to(botLine, animationConfig, '-=2');
   };
 
-  const animateG = () => {
-    const {
-      lines,
-    } = DOM.g;
-    const tl = new TimelineLite();
-    tl
-      .to(lines, animationConfig);
-  };
-
   const animateGWhite = () => {
     const {
       title,
       text,
-      button,
     } = DOM.g;
     const tl = new TimelineLite();
     tl
       .to(title, animationConfig)
-      .to(text, animationConfig, '-=0.5')
-      .to(button, animationConfig, '-=0.25');
+      .to(text, animationConfig, '-=0.5');
   };
 
   const animatePlans = () => {
@@ -300,14 +295,9 @@ $(() => {
 
   load()
     .then(() => {
-      animateTitle();
-      const scroll = new LocomotiveScroll({
-        el: document.querySelector('[data-scroll-container]'),
-        smooth: true,
-        // lerp: .05,
-      });
-      // scroll.destroy();
-      scroll.on('scroll', (e) => {
+      let scroll = null;
+      let scrollListenerAdded = false;
+      const onLocomotiveScroll = (e) => {
         const offsetTop = e.scroll.y;
         $(DOM.fixedLeftSide).toggleClass('scrolled', offsetTop > 100);
         const winHeight = $(window).height();
@@ -319,9 +309,6 @@ $(() => {
         }
         if ($(DOM.ter.self).offset().top < winHeight) {
           animateTer();
-        }
-        if ($(DOM.g.green).offset().top < winHeight) {
-          animateG();
         }
         if ($(DOM.g.white).offset().top < winHeight) {
           animateGWhite();
@@ -356,8 +343,50 @@ $(() => {
         } else {
           $(DOM.scrollPlease).fadeIn();
         }
-      });
+      };
+      const initScroll = () => {
+        if (!scroll) {
+          scroll = new LocomotiveScroll({
+            el: document.querySelector('[data-scroll-container]'),
+            smooth: true,
+          });
+          animateTitle();
+        } else {
+          scroll.init();
+        }
+        if (!scrollListenerAdded) {
+          scrollListenerAdded = true;
+          scroll.on('scroll', onLocomotiveScroll);
+        }
+      };
+      const destroyScroll = () => {
+        if (scroll) {
+          scroll.stop();
+          scroll.destroy();
+        }
+      };
+      const onWindowScroll = () => {
+        $(DOM.mobileHeader).toggleClass('scrolled', !!$(window).scrollTop());
+        if ($(DOM.e.self).offset().top < $(window).height()) {
+          animateE();
+          $(DOM.scrollPlease).fadeOut();
+        } else {
+          $(DOM.scrollPlease).fadeIn();
+        }
+      };
+      const onWindowResize = () => {
+        if ($(window).width() <= 1024) {
+          destroyScroll();
+          $(window).on('scroll', onWindowScroll);
+        } else {
+          initScroll();
+          $(window).off('scroll', onWindowScroll);
+        }
+      };
+      onWindowResize();
+      $(window).on('resize', onWindowResize);
     });
+
   $('.feedback').on('modal:close', () => {
     $('.form .input').removeClass(['has-value', 'focus', 'invalid']);
     $('.form input, .form textarea').val('');
@@ -439,6 +468,21 @@ $(() => {
       place.html('');
       $(this).find('.play').toggleClass('visible');
       $(this).find('.stop').toggleClass('visible');
+    }
+  });
+  $(DOM.services.service).on('click', '[data-service]', ({ currentTarget }) => {
+    if ($(window).width() <= 1024) {
+      const $el = $(currentTarget);
+      if (!$el.attr('data-modal')) {
+        $el.attr('data-modal', $el.attr('data-service'));
+        const content = $el.find('.t-post').html().replace(/service__(post-text|count|title|description|img)/g, '');
+        const modal = $(`<div class="value-m sbm modal" data-service="${$el.attr('data-service')}"><div class="value-m__inner">${content}</div></div>`);
+        $(document.body).append(modal);
+      }
+      $(`.modal[data-service="${$el.attr('data-service')}"]`).modal({
+        fadeDuration: 200,
+        blockerClass: 'jquery-modal jquery-modal--h100',
+      });
     }
   });
 });

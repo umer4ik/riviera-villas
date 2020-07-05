@@ -1,0 +1,41 @@
+.mobile-header {
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  position: fixed;
+  background-color: #fff;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 25px;
+  padding-right: 25px;
+  transition: all .35s $easing;
+  @include wider-than-tablet {
+    display: none;
+  }
+  &.scrolled {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  &__links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__link {
+    width: 39px;
+    height: 39px;
+    border: 1px solid rgba($black, .1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    border-radius: 50%;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

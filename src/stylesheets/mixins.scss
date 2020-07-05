@@ -1,31 +1,45 @@
-$tablet-width: 768px;
-$desktop-width: 1200px;
+$phone-width: 767px;
+$tablet-landscape-width: 1024px;
+$tablet-portrait-width: 768px;
+$desktop-width: 1440px;
 $easing: cubic-bezier(.4, 0, 0, 1);
 $black: #04151f;
 $blue: #4F7CAC;
 $gold: #AAAE7F;
 $red: #e45959;
-
-@mixin tablet {
-  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
-    @content;
-  }
-}
-
-@mixin phone {
-  @media (max-width: #{$tablet-width - 1}) {
-    @content;
-  }
-}
-
-@mixin tablet-phone {
-  @media (max-width: #{$desktop-width - 1}) {
-    @content;
-  }
-}
-
+// 768 <= width <= 1024
+// width < 768
+// width >= 1440
 @mixin desktop {
-  @media (min-width: #{$desktop-width}) {
+  @media (min-width: $desktop-width) {
+    @content;
+  }
+}
+// 1024 < width < 1440
+@mixin laptop-only {
+  @media (min-width: #{$tablet-landscape-width + 1px}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+// < 1440
+@mixin laptop {
+  @media (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+// width > 1024
+@mixin wider-than-tablet {
+  @media (min-width: #{$tablet-landscape-width + 1px}) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (max-width: $tablet-landscape-width) {
+    @content;
+  }
+}
+@mixin phone {
+  @media (max-width: $phone-width) {
     @content;
   }
 }
@@ -37,18 +51,24 @@ $red: #e45959;
 }
 
 @mixin hidden-bg {
-  transform: translate(0, 100px);
-  opacity: 0;
+  @include wider-than-tablet {
+    transform: translate(0, 100px);
+    opacity: 0;
+  }
 }
 
 @mixin faded {
-  transform: translate(0, 100px);
-  opacity: 0;
+  @include wider-than-tablet {
+    transform: translate(0, 100px);
+    opacity: 0;
+  }
 }
 
 @mixin faded-margin {
-  margin-top: 100px;
-  opacity: 0;
+  @include wider-than-tablet {
+    margin-top: 100px;
+    opacity: 0;
+  }
 }
 
 @mixin clearfix {

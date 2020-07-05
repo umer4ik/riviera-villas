@@ -1,9 +1,12 @@
 .header-contacts {
-  display: flex;
-  padding: 40px;
-  align-items: center;
-  justify-content: flex-end;
-  position: relative;
-  z-index: 2;
-  font-size: 15px;
+  display: none;
+  @include wider-than-tablet {
+    display: flex;
+    padding: 40px;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+    z-index: 2;
+    font-size: 15px;
+  }
 }

@@ -4,9 +4,18 @@
   background: url('../images/ellipse-grey.svg') no-repeat;
   background-size: cover;
   background-position: 50% 200px;
+  background-color: #fff;
+  @include tablet {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
   &__inner {
     @include section;
     padding-left: 160px;
+    @include laptop {
+      padding-left: 25px;
+      padding-right: 25px;
+    }
   }
   &__row {
     display: flex;
@@ -15,17 +24,26 @@
       margin-top: 145px;
       justify-content: center;
     }
+    @include tablet {
+      margin-top: 0;
+      display: block;
+    }
   }
   &__col {
     max-width: 600px;
     flex-grow: 1;
     + .sb__col {
-      margin-left: 50px;
+      @include wider-than-tablet {
+        margin-left: 50px;
+      }
     }
   }
   &__title {
     font-size: 50px;
     margin-bottom: 17px;
+    @include tablet {
+      font-size: 29px;
+    }
   }
   &__description {
     max-width: 435px;

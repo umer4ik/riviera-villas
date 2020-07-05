@@ -3,6 +3,9 @@
   background-size: cover;
   padding: 167px 0;
   color: #fff;
+  @include tablet {
+    padding: 80px 25px;
+  }
   &__inner {
     max-width: 792px;
     margin-left: auto;
@@ -13,6 +16,9 @@
     display: inline-block;
     vertical-align: middle;
     @include faded;
+    @include tablet {
+      width: 65px;
+    }
   }
   .split-text {
     display: flex;
@@ -33,5 +39,9 @@
     line-height: 110%;
     letter-spacing: 0.04em;
     text-transform: uppercase;
+    @include tablet {
+      font-size: 29px;
+      line-height: 95%;
+    }
   }
 }

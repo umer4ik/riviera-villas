@@ -2,6 +2,9 @@
   position: relative;
   min-height: 704px;
   overflow: hidden;
+  @include tablet {
+    min-height: unset;
+  }
   &__container {
     background: url('../images/sbg.png') 50% 50% no-repeat;
     background-size: cover;
@@ -33,22 +36,41 @@
       opacity: 1;
     }
     .service:hover & {
-      background-position: 1000px 1000px;
-      background-color: #fff;
-      border-color: rgba(#000, 0.1);
+      @include wider-than-tablet {
+        background-position: 1000px 1000px;
+        background-color: #fff;
+        border-color: rgba(#000, 0.1);
+      }
+    }
+    @include tablet {
+      position: relative;
+      transform: none;
+      opacity: 1;
     }
   }
   &__inner {
     padding: 40px;
     max-width: 717px;
+    @include tablet {
+      padding: 25px;
+      max-width: none;
+      display: flex;
+      flex-direction: column;
+    }
   }
   &__img {
     transform: translate(20px, 161px) scale(0.68);
     transition: transform .7s $easing;
     transition-delay: .1s;
     .service:hover & {
-      transition-delay: 0s;
+      @include wider-than-tablet {
+        transition-delay: 0s;
+        transform: none;
+      }
+    }
+    @include tablet {
       transform: none;
+      width: 100%;
     }
   }
   &__title {
@@ -56,8 +78,18 @@
     transition: transform .7s $easing;
     transition-delay: .1s;
     .service:hover & {
-      transition-delay: 0s;
-      transform: none;
+      @include wider-than-tablet {
+        transition-delay: 0s;
+        transform: none;
+      }
+    }
+    @include tablet {
+      .service & {
+        transform: none;
+        font-size: 20px;
+        margin-top: 0;
+        margin-bottom: 15px;
+      }
     }
   }
   &__count {
@@ -65,8 +97,13 @@
     transition: opacity .7s $easing;
     transition-delay: .1s;
     .service:hover & {
-      transition-delay: 0s;
-      opacity: 1;
+      @include wider-than-tablet {
+        transition-delay: 0s;
+        opacity: 1;
+      }
+    }
+    @include tablet {
+      display: none;
     }
   }
   &__description {
@@ -74,8 +111,13 @@
     transition: opacity .7s $easing;
     transition-delay: .1s;
     .service:hover & {
-      transition-delay: 0s;
-      opacity: 1;
+      @include wider-than-tablet {
+        transition-delay: 0s;
+        opacity: 1;
+      }
+    }
+    @include tablet {
+      display: none;
     }
   }
   &__btn {
@@ -85,9 +127,22 @@
     pointer-events: none;
     transition-delay: .1s;
     .service:hover & {
-      transition-delay: 0s;
-      transform: translate(100px, 0);
-      opacity: 0;
+      @include wider-than-tablet {
+        transition-delay: 0s;
+        transform: translate(100px, 0);
+        opacity: 0;
+      }
+    }
+    @include tablet {
+      position: relative;
+      right: auto;
+      bottom: auto;
+      display: inline-block;
+      order: 3;
+      margin-top: 15px;
+      align-self: flex-end;
+      margin-right: 0;
+      margin-bottom: 92px;
     }
   }
   &__dot {
@@ -99,8 +154,29 @@
     transform: translate(0, 100px);
     transition: transform .35s $easing;
     .service:hover & {
-      transition-delay: .7s;
-      transform: none;
+      @include wider-than-tablet {
+        transition-delay: .7s;
+        transform: none;
+      }
+    }
+    @include tablet {
+      display: none;
+      .jquery-modal & {
+        display: block;
+        transform: none;
+      }
+    }
+  }
+  &__post {
+    @include tablet {
+      display: flex;
+      flex-direction: column-reverse;
+      margin-top: 92px;
+    }
+  }
+  &__post-text {
+    @include tablet {
+      padding: 0;
     }
   }
 }

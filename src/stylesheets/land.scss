@@ -7,4 +7,7 @@
   justify-content: flex-end;
   align-items: center;
   padding-bottom: 115px;
+  @include tablet {
+    height: 50vh;
+  }
 }

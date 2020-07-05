@@ -7,11 +7,18 @@
   background-repeat: no-repeat;
   background-position: 100% 0;
   overflow: hidden;
+  @include tablet {
+    margin-top: 78px;
+  }
   &__container {
     padding-top: 400px;
     @include section;
     padding-bottom: 400px;
     position: relative;
+    @include tablet {
+      padding-top: 160px;
+      padding-bottom: 160px;
+    }
   }
   &__inner {
     text-align: center;
@@ -27,6 +34,9 @@
     text-transform: uppercase;
     font-size: 30px;
     line-height: 110%;
+    @include tablet {
+      font-size: 10px;
+    }
     .split-text {
       display: flex;
       align-items: center;
@@ -39,21 +49,41 @@
     font-size: 35px;
     line-height: 150%;
     text-transform: uppercase;
+    @include tablet {
+      font-size: 18px;
+    }
   }
   &__image {
     position: absolute;
-    opacity: 0;
+    @include wider-than-tablet {
+      opacity: 0;
+    }
     &:first-child {
       left: -10px;
       top: 200px;
+      @include tablet {
+        left: 0;
+        top: 31px;
+        transform: scale(.5);
+        transform-origin: 0 0;
+      }
     }
     &:nth-child(2) {
       bottom: 200px;
       left: 370px;
+      @include tablet {
+        display: none;
+      }
     }
     &:nth-child(3) {
       right: 20px;
       bottom: 360px;
+      @include tablet {
+        right: 0;
+        bottom: 100px;
+        transform: scale(.5);
+        transform-origin: 100% 100%;
+      }
     }
   }
 }

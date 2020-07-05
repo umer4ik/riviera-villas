@@ -4,6 +4,10 @@
   background-color: $blue;
   position: relative;
   overflow: hidden;
+  @include tablet {
+    padding-top: 80px;
+    padding-bottom: 0;
+  }
   &__decorator {
     position: absolute;
     top: 0;
@@ -17,11 +21,22 @@
     padding-left: 160px;
     margin-bottom: 67px;
     @include section;
+    @include laptop {
+      padding-left: 25px;
+      padding-right: 25px;
+    }
+    @include tablet {
+      display: block;
+      margin-bottom: 45px;
+    }
   }
   &__title {
     color: #fff;
     max-width: 440px;
     flex-grow: 1;
+    @include tablet {
+      margin-bottom: 20px;
+    }
   }
   &__description {
     color: #fff;
@@ -37,5 +52,14 @@
     margin-left: calc(50% - 720px + 160px);
     height: 760px;
     @include faded-margin;
+    @include tablet {
+      height: 500px;
+      background-position: 50% 50%;
+      width: calc(100% - 25px);
+      margin-left: 25px;
+    }
+    @include phone {
+      height: 175px;
+    }
   }
 }

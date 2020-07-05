@@ -1,5 +1,8 @@
 .blocker {
   z-index: 5;
+  @include tablet {
+    padding: 15px;
+  }
 }
 .feedback {
   width: 80vw;

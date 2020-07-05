@@ -5,15 +5,29 @@
     padding-top: 220px;
     padding-bottom: 220px;
     @include section;
+    @include tablet {
+      padding-top: 79px;
+      padding-bottom: 79px;
+    }
   }
   &__inner {
     padding-left: 160px;
     display: flex;
     align-items: flex-start;
+    @include laptop {
+      padding-left: 25px;
+      padding-right: 25px;
+    }
+    @include tablet {
+      display: block;
+    }
   }
   &__text {
     max-width: 324px;
     flex-grow: 1;
+    @include phone {
+      max-width: 100%;
+    }
   }
   &__description {
     @include faded;
@@ -26,5 +40,9 @@
     flex-grow: 1;
     margin-left: 105px;
     margin-top: -3px;
+    @include tablet {
+      margin-left: 0;
+      margin-top: 50px;
+    }
   }
 }

@@ -6,14 +6,29 @@
   color: #fff;
   padding-bottom: 200px;
   @include clearfix;
+  @include tablet {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    min-height: 0;
+  }
   &__img {
     position: absolute;
     right: 0;
     top: 200px;
+    @include tablet {
+      position: static;
+      display: block;
+      margin-left: 25px;
+      width: calc(100% - 25px);
+    }
   }
   &__inner {
     @include section;
     position: relative;
+    @include tablet {
+      padding-left: 25px;
+      padding-right: 25px;
+    }
   }
   &__green {
     background: url('../images/ellipse.svg') no-repeat #1D4934;
@@ -34,8 +49,19 @@
       display: flex;
       justify-content: space-between;
     }
+    @include tablet {
+      position: relative;
+      top: -45px;
+      left: 0;
+      height: 150px;
+      padding: 8px 12px;
+      max-width: 270px;
+    }
   }
   &__line {
+    @include tablet {
+      font-size: 7px;
+    }
     &--rotate {
       transform: rotate(180deg);
     }
@@ -46,12 +72,14 @@
     overflow: hidden;
     margin-top: 1100px;
     margin-right: 160px;
+    @include tablet {
+      margin-top: 5px;
+      max-width: 100%;
+      margin-right: 0;
+    }
   }
   &__title {
-    letter-spacing: .04em;
-    text-transform: uppercase;
-    font-size: 40px;
-    line-height: 95%;
+    color: #fff;
   }
   &__description {
     @include helvetica;
@@ -59,5 +87,10 @@
     line-height: 170%;
     margin-top: 22px;
     @include faded;
+  }
+  &__logo {
+    @include tablet {
+      width: 100px;
+    }
   }
 }

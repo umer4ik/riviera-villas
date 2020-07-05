@@ -7,8 +7,17 @@
   cursor: pointer;
   @include faded;
   z-index: 1;
+  @include tablet {
+    padding: 28px 0 20px;
+    display: block;
+  }
   &:first-child {
-    padding-top: 0;
+    @include wider-than-tablet {
+      padding-top: 0;
+    }
+    @include tablet {
+      border-top: 2px solid #e5e5e5;
+    }
   }
   &::after,
   &::before {
@@ -19,25 +28,30 @@
     height: 2px;
     width: 200%;
     z-index: 1;
+    @include tablet {
+      width: 100%;
+    }
   }
   &::before {
     background-color: #e5e5e5;
   }
   &::after {
     transition: transform .7s $easing;
-    background-color: #aaae7f;
+    background-color: $gold;
     transform: scaleX(0);
     transform-origin: 100% 50%;
     left: auto;
     right: -100%;
   }
-  &:hover {
-    z-index: 2;
-    &::after {
-      transform-origin: 0% 50%;
-      transform: scaleX(1);
-      left: 0;
-      right: auto;
+  @include wider-than-tablet {
+    &:hover {
+      z-index: 2;
+      &::after {
+        transform-origin: 0% 50%;
+        transform: scaleX(1);
+        left: 0;
+        right: auto;
+      }
     }
   }
   &__title {
@@ -46,7 +60,13 @@
     text-transform: uppercase;
     transition: color .35s $easing;
     .value:hover & {
-      color: $gold;
+      @include wider-than-tablet {
+        color: $gold;
+      }
+    }
+    @include tablet {
+      font-size: 20px;
+      margin-bottom: 14px;
     }
   }
   &__img-container {
@@ -55,6 +75,13 @@
     height: 285px;
     width: 215px;
     pointer-events: none;
+    @include tablet {
+      width: 47px;
+      height: 62px;
+      top: 16px;
+      right: 0;
+      left: auto;
+    }
   }
   &__img {
     position: absolute;
@@ -68,10 +95,15 @@
     transition: width .35s $easing;
     z-index: 2;
     .value:hover & {
+      @include wider-than-tablet {
+        width: 100%;
+        left: 0;
+        right: auto;
+        background-position: 0 50%;
+      }
+    }
+    @include tablet {
       width: 100%;
-      left: 0;
-      right: auto;
-      background-position: 0 50%;
     }
   }
   &__more {
@@ -82,15 +114,26 @@
     text-transform: uppercase;
     transition: all .35s $easing;
     .value:hover & {
-      color: $gold;
-      transform: translate(10px, 0);
-      svg path {
-        fill: $gold;
+      @include wider-than-tablet {
+        color: $gold;
+        transform: translate(10px, 0);
+        svg path {
+          fill: $gold;
+        }
       }
     }
     svg path {
       fill: $black;
       transition: all .35s $easing;
+    }
+    @include tablet {
+      font-size: 11px;
+    }
+    svg {
+      @include tablet {
+        width: 10px;
+        height: 13px;
+      }
     }
   }
 }

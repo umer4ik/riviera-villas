@@ -6,21 +6,28 @@
     padding-bottom: 50px;
     display: flex;
     align-items: flex-start;
+    @include laptop {
+      padding-left: 25px;
+      padding-right: 25px;
+    }
+    @include tablet {
+      padding-top: 80px;
+      padding-bottom: 30px;
+      display: block;
+    }
   }
   &__title {
     margin-right: 125px;
-    letter-spacing: .04em;
-    text-transform: uppercase;
-    font-size: 40px;
-    line-height: 95%;
-    white-space: nowrap;
+    @include tablet {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
   }
   &__description {
-    color: #3f3f3f;
-    @include helvetica;
-    font-size: 15px;
-    line-height: 170%;
     @include faded;
-    width: 463px;
+    max-width: 463px;
+    @include phone {
+      max-width: 100%;
+    }
   }
 }

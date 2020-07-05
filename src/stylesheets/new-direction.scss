@@ -5,18 +5,35 @@
   background: url('../images/new-direction-curve.svg') 0 0 no-repeat $blue;
   background-size: cover;
   margin-top: -5px;
+  @include tablet {
+    padding-top: 80px;
+    padding-bottom: 120px;
+  }
   &__inner {
     @include section;
     padding-left: 160px;
+    @include laptop {
+      padding-left: 25px;
+      padding-right: 25px;
+    }
   }
   &__row {
     display: flex;
     align-items: center;
+    @include tablet {
+      display: block;
+    }
   }
   &__col {
     max-width: 436px;
     flex-grow: 1;
     position: relative;
+    @include phone {
+      max-width: none;
+      & + .new-direction__col {
+        margin-top: 45px;
+      }
+    }
   }
   &__text {
     padding-right: 30px;
@@ -38,16 +55,36 @@
     align-items: center;
     padding-left: 106px;
     @include faded-margin;
+    @include tablet {
+      padding-left: 33px;
+      height: 164px;
+      width: calc(100% + 25px);
+    }
   }
   &__img {
     position: absolute;
     left: 416px;
     top: 95px;
     @include faded-margin;
+    @include tablet {
+      top: 58px;
+      right: 0;
+      left: auto;
+    }
     img {
       vertical-align: middle;
       display: inline-block;
       z-index: 2;
+      @include tablet {
+        width: 126.95px;
+      }
+    }
+  }
+  &__logo {
+    img {
+      @include tablet {
+        height: 48px;
+      }
     }
   }
 }

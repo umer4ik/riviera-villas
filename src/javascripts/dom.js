@@ -4,13 +4,14 @@ const getDOM = () => ({
   fixedLeftSide: qs('.fixed-left-side'),
   reloadingInner: qs('.reloading__inner'),
   scrollPlease: qs('.scroll-please'),
+  mobileHeader: qs('.mobile-header'),
   brand: {
     self: qs('.brand'),
     bg: qs('.brand .brand__bg'),
-    textTopChars: qsa('.brand .brand-text__top .split-text .invisible-char'),
+    textTopChars: qsa('.brand .brand-text__top .invisible-char'),
     headerWords: qsa('.brand .brand-text__header .split-word .invisible-word'),
     description: qs('.brand .brand-text__description'),
-    newColorsTitle: qsa('.new-colors .new-colors__title .split-text .invisible-char'),
+    newColorsTitle: qsa('.new-colors .new-colors__title .invisible-char'),
     newColorsItems: qsa('.new-colors__item'),
   },
   vToV: {
@@ -27,12 +28,10 @@ const getDOM = () => ({
   },
   g: {
     self: qs('.g'),
-    lines: qsa('.g__line .invisible-char'),
     green: qs('.g__green'),
     white: qs('.g__white'),
     title: qsa('.g__title .invisible-char'),
     text: qsa('.g__description'),
-    button: qs('.g .button'),
   },
   plans: {
     self: qs('.plans'),

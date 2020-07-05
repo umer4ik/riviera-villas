@@ -1,4 +1,7 @@
 .main-container {
   display: block;
   padding-bottom: 0;
+  @include tablet {
+    overflow: hidden;
+  }
 }
