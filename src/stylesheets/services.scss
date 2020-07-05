@@ -1,6 +1,8 @@
 .services {
   padding-top: 220px;
   padding-bottom: 220px;
+  position: relative;
+  z-index: 1;
   &__inner {
     display: flex;
     align-items: flex-start;

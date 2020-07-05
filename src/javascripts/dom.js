@@ -67,6 +67,33 @@ const getDOM = () => ({
     navButtons: qsa('.services__btn'),
     listItems: qsa('.service__container'),
   },
+  subService: {
+    self: qs('.sb'),
+    listItems: qsa('.sbb'),
+    title: qsa('.sb__title .invisible-char'),
+    description: qs('.sb__description'),
+  },
+  safety: {
+    self: qs('.safety'),
+    title: qsa('.safety__title .invisible-char'),
+    description: qs('.safety__description'),
+    blockquote: qs('.safety__blockquote'),
+    sheriff: qs('.safety__sheriff'),
+    bg: qs('.safety__bg-holder'),
+  },
+  newNav: {
+    self: qs('.new-nav'),
+    title: qsa('.new-nav__title .invisible-char'),
+    description: qs('.new-nav__description'),
+    bg: qs('.new-nav__bg'),
+  },
+  newDirection: {
+    self: qs('.new-direction'),
+    title: qsa('.new-direction__title .invisible-char'),
+    description: qs('.new-direction__description'),
+    bg: qs('.new-direction__bg'),
+    img: qs('.new-direction__img'),
+  },
 });
 
 export default getDOM;

@@ -1,0 +1,53 @@
+.new-direction {
+  overflow: hidden;
+  padding-top: 105px;
+  padding-bottom: 220px;
+  background: url('../images/new-direction-curve.svg') 0 0 no-repeat $blue;
+  background-size: cover;
+  margin-top: -5px;
+  &__inner {
+    @include section;
+    padding-left: 160px;
+  }
+  &__row {
+    display: flex;
+    align-items: center;
+  }
+  &__col {
+    max-width: 436px;
+    flex-grow: 1;
+    position: relative;
+  }
+  &__text {
+    padding-right: 30px;
+  }
+  &__title {
+    color: #fff;
+  }
+  &__description {
+    color: #fff;
+    margin-top: 24px;
+    @include faded;
+  }
+  &__bg {
+    position: relative;
+    width: 2000px;
+    background-color: #9ad2cb;
+    height: 417px;
+    display: flex;
+    align-items: center;
+    padding-left: 106px;
+    @include faded-margin;
+  }
+  &__img {
+    position: absolute;
+    left: 416px;
+    top: 95px;
+    @include faded-margin;
+    img {
+      vertical-align: middle;
+      display: inline-block;
+      z-index: 2;
+    }
+  }
+}

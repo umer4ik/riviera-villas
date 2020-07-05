@@ -54,6 +54,14 @@ const animationConfig = {
   stagger: 0.05,
 };
 
+const marginAnimationConfig = {
+  duration: 0.4,
+  marginTop: 0,
+  ease: 'power2',
+  stagger: 0.05,
+  opacity: 1,
+};
+
 const imgAnimationConfig = {
   duration: 2,
   opacity: 1,
@@ -89,18 +97,13 @@ const load = () => new Promise((resolve) => {
     () => {
       resolve();
     },
-    1000,
+    2000,
   );
 });
 
 $(() => {
   splitText();
   const DOM = getDOM();
-  const scroll = new LocomotiveScroll({
-    el: document.querySelector('[data-scroll-container]'),
-    smooth: true,
-    // lerp: .05,
-  });
 
   const animateBrand = () => {
     const {
@@ -233,9 +236,127 @@ $(() => {
       .to(service, animationConfig, '-=0.1');
   };
 
+  const animateSubService = () => {
+    const {
+      title,
+      description,
+      listItems,
+    } = DOM.subService;
+    const tl = new TimelineLite();
+    tl
+      .to(title, animationConfig)
+      .to(description, animationConfig, '-=0.5')
+      .to(
+        listItems,
+        marginAnimationConfig,
+        '-=0.1',
+      );
+  };
+
+  const animateSafety = () => {
+    const {
+      title,
+      description,
+      blockquote,
+      sheriff,
+      bg,
+    } = DOM.safety;
+    const tl = new TimelineLite();
+    tl
+      .to(title, animationConfig)
+      .to(description, animationConfig, '-=0.25')
+      .to(blockquote, animationConfig, '-=0.25')
+      .to(sheriff, marginAnimationConfig, '-=0.25')
+      .to(bg, marginAnimationConfig, '-=0.25');
+  };
+
+  const animateNewNav = () => {
+    const {
+      title,
+      description,
+      bg,
+    } = DOM.newNav;
+    const tl = new TimelineLite();
+    tl
+      .to(title, animationConfig)
+      .to(description, animationConfig, '-=0.25')
+      .to(bg, marginAnimationConfig, '-=0.25');
+  };
+
+  const animateNewDirection = () => {
+    const {
+      title,
+      description,
+      bg,
+      img,
+    } = DOM.newDirection;
+    const tl = new TimelineLite();
+    tl
+      .to(title, animationConfig)
+      .to(description, animationConfig, '-=1.0')
+      .to(bg, marginAnimationConfig, '-=0.75')
+      .to(img, marginAnimationConfig, '-=0.5');
+  };
+
   load()
     .then(() => {
       animateTitle();
+      const scroll = new LocomotiveScroll({
+        el: document.querySelector('[data-scroll-container]'),
+        smooth: true,
+        // lerp: .05,
+      });
+      // scroll.destroy();
+      scroll.on('scroll', (e) => {
+        const offsetTop = e.scroll.y;
+        $(DOM.fixedLeftSide).toggleClass('scrolled', offsetTop > 100);
+        const winHeight = $(window).height();
+        if ($(DOM.brand.self).offset().top < winHeight) {
+          animateBrand();
+        }
+        if ($(DOM.vToV.self).offset().top < winHeight) {
+          animateVToV();
+        }
+        if ($(DOM.ter.self).offset().top < winHeight) {
+          animateTer();
+        }
+        if ($(DOM.g.green).offset().top < winHeight) {
+          animateG();
+        }
+        if ($(DOM.g.white).offset().top < winHeight) {
+          animateGWhite();
+        }
+        if ($(DOM.plans.self).offset().top < winHeight) {
+          animatePlans();
+        }
+        if ($(DOM.land.self).offset().top < winHeight) {
+          animateLand();
+        }
+        if ($(DOM.values.self).offset().top < winHeight) {
+          animateValues();
+        }
+        if ($(DOM.services.self).offset().top < winHeight) {
+          animateService();
+        }
+        if ($(DOM.subService.self).offset().top < winHeight) {
+          animateSubService();
+        }
+        if ($(DOM.safety.self).offset().top < winHeight) {
+          animateSafety();
+        }
+        if ($(DOM.newNav.self).offset().top < winHeight) {
+          animateNewNav();
+        }
+        if ($(DOM.newDirection.self).offset().top < winHeight) {
+          animateNewDirection();
+        }
+        if ($(DOM.e.self).offset().top < winHeight) {
+          animateE();
+          $(DOM.scrollPlease).fadeOut();
+        } else {
+          $(DOM.scrollPlease).fadeIn();
+        }
+      });
     });
   $('.feedback').on('modal:close', () => {
     $('.form .input').removeClass(['has-value', 'focus', 'invalid']);
@@ -282,14 +403,17 @@ $(() => {
     }
   });
 
-  $(DOM.values.list).on('click', '.value', ({ currentTarget }) => {
+  const showDescriptionModal = ({ currentTarget }) => {
     const $el = $(currentTarget);
     const modalId = $el.attr('data-modal');
     $(`#${modalId}`).modal({
       fadeDuration: 200,
       blockerClass: 'jquery-modal jquery-modal--h100',
     });
-  });
+  };
+
+  $(DOM.values.list).on('click', '.value', showDescriptionModal);
+  $(DOM.subService.listItems).on('click', showDescriptionModal);
 
   $(DOM.services.navButtons).on('click', ({ currentTarget }) => {
     const $el = $(currentTarget);
@@ -315,44 +439,6 @@ $(() => {
       place.html('');
       $(this).find('.play').toggleClass('visible');
       $(this).find('.stop').toggleClass('visible');
-    }
-  });
-  scroll.on('scroll', (e) => {
-    const offsetTop = e.scroll.y;
-    $(DOM.fixedLeftSide).toggleClass('scrolled', offsetTop > 100);
-    const winHeight = $(window).height();
-    if ($(DOM.brand.self).offset().top < winHeight) {
-      animateBrand();
-    }
-    if ($(DOM.vToV.self).offset().top < winHeight) {
-      animateVToV();
-    }
-    if ($(DOM.ter.self).offset().top < winHeight) {
-      animateTer();
-    }
-    if ($(DOM.g.green).offset().top < winHeight) {
-      animateG();
-    }
-    if ($(DOM.g.white).offset().top < winHeight) {
-      animateGWhite();
-    }
-    if ($(DOM.plans.self).offset().top < winHeight) {
-      animatePlans();
-    }
-    if ($(DOM.land.self).offset().top < winHeight) {
-      animateLand();
-    }
-    if ($(DOM.values.self).offset().top < winHeight) {
-      animateValues();
-    }
-    if ($(DOM.services.self).offset().top < winHeight) {
-      animateService();
-    }
-    if ($(DOM.e.self).offset().top < winHeight) {
-      animateE();
-      $(DOM.scrollPlease).fadeOut();
-    } else {
-      $(DOM.scrollPlease).fadeIn();
     }
   });
 });

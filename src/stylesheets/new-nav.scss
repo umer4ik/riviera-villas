@@ -1,0 +1,41 @@
+.new-nav {
+  padding-top: 220px;
+  padding-bottom: 105px;
+  background-color: $blue;
+  position: relative;
+  overflow: hidden;
+  &__decorator {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+  }
+  &__inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    padding-left: 160px;
+    margin-bottom: 67px;
+    @include section;
+  }
+  &__title {
+    color: #fff;
+    max-width: 440px;
+    flex-grow: 1;
+  }
+  &__description {
+    color: #fff;
+    max-width: 470px;
+    flex-grow: 1;
+    @include faded;
+  }
+  &__bg {
+    position: relative;
+    z-index: 2;
+    background: url('../images/new-nav.png') 0 50% no-repeat;
+    background-size: cover;
+    margin-left: calc(50% - 720px + 160px);
+    height: 760px;
+    @include faded-margin;
+  }
+}

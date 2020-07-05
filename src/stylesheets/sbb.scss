@@ -1,0 +1,81 @@
+.sbb {
+  cursor: pointer;
+  opacity: 0;
+  margin-top: 100px;
+  &--sport {
+    width: 434px;
+  }
+  &--kids {
+    width: 600px;
+  }
+  &--club {
+    width: 763px;
+    margin-left: -100px;
+  }
+  &__img-wrapper {
+    position: relative;
+    overflow: hidden;
+    transition: transform .35s $easing;
+    .sbb:hover & {
+      transform: scale(0.95);
+    }
+  }
+  &__img {
+    display: inline-block;
+    vertical-align: middle;
+    transition: transform .35s $easing;
+    .sbb:hover & {
+      transform: scale(1.1);
+    }
+  }
+  &__tag {
+    position: absolute;
+    width: 255px;
+    height: 104px;
+    top: 50%;
+    left: 50%;
+    margin-left: -127px;
+    margin-top: -57px;
+    opacity: 0;
+    transform: scale(1.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .35s $easing;
+    .sbb--sport & {
+      background-color: #14ff7b;
+    }
+    .sbb--kids & {
+      background-color: #F86F25;
+    }
+    .sbb--club & {
+      background-color: #88CCF1;
+    }
+    .sbb:hover & {
+      transform: none;
+      opacity: 1;
+    }
+  }
+  &__footer {
+    display: flex;
+    align-items: center;
+    padding-top: 30px;
+  }
+  &__count {
+    font-size: 14px;
+    line-height: 110%;
+    margin-right: 47px;
+  }
+  &__title {
+    @include helvetica;
+    font-size: 14px;
+    line-height: 110%;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+  }
+  &__more-btn {
+    margin-left: auto;
+    margin-top: 0;
+    margin-right: 0;
+  }
+}

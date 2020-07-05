@@ -46,6 +46,11 @@ $red: #e45959;
   opacity: 0;
 }
 
+@mixin faded-margin {
+  margin-top: 100px;
+  opacity: 0;
+}
+
 @mixin clearfix {
   &::after {
     display: table;

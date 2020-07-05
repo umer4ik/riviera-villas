@@ -1,0 +1,35 @@
+.sb {
+  padding-top: 220px;
+  padding-bottom: 220px;
+  background: url('../images/ellipse-grey.svg') no-repeat;
+  background-size: cover;
+  background-position: 50% 200px;
+  &__inner {
+    @include section;
+    padding-left: 160px;
+  }
+  &__row {
+    display: flex;
+    align-items: flex-start;
+    &--bottom {
+      margin-top: 145px;
+      justify-content: center;
+    }
+  }
+  &__col {
+    max-width: 600px;
+    flex-grow: 1;
+    + .sb__col {
+      margin-left: 50px;
+    }
+  }
+  &__title {
+    font-size: 50px;
+    margin-bottom: 17px;
+  }
+  &__description {
+    max-width: 435px;
+    margin-bottom: 70px;
+    @include faded;
+  }
+}
