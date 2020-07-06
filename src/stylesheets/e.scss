@@ -42,6 +42,12 @@
     @include tablet {
       font-size: 29px;
       line-height: 95%;
+      text-align: center;
+    }
+    .split-text {
+      @include tablet {
+        display: block;
+      }
     }
   }
 }

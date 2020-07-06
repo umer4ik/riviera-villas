@@ -1,6 +1,5 @@
 .land {
-  height: 100vh;
-  background: url('../images/view1.png') 50% 50% no-repeat;
+  min-height: 100vh;
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -8,6 +7,21 @@
   align-items: center;
   padding-bottom: 115px;
   @include tablet {
-    height: 50vh;
+    min-height: 0;
+    padding-bottom: 40px;
+    overflow: hidden;
+  }
+  img {
+    width: 118%;
+    margin-left: -9%;
+  }
+  &__button {
+    position: relative;
+    z-index: 1;
+    margin-top: -170px;
+    @include tablet {
+      margin-top: -60px;
+      height: 40px;
+    }
   }
 }

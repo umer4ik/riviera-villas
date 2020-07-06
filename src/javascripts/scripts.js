@@ -23,6 +23,9 @@ const splitText = () => {
   if (elements) {
     for (let i = 0; i < elements.length; i += 1) {
       const element = elements[i];
+      if ($(element).hasClass('splitted')) {
+        return;
+      }
       element.innerHTML = `<span>${element.textContent.split('').join('</span><span>')}</span>`.replace(/ /g, '&nbsp;');
       const chars = element.querySelectorAll('span');
       for (let j = 0; j < chars.length; j += 1) {
@@ -32,12 +35,16 @@ const splitText = () => {
           <span class="invisible-char">${char.textContent}</span>
         `;
       }
+      $(element).addClass('splitted');
     }
   }
   const wordElements = document.querySelectorAll(splitWordSelector);
   if (wordElements) {
     for (let i = 0; i < wordElements.length; i += 1) {
       const element = wordElements[i];
+      if ($(element).hasClass('splitted')) {
+        return;
+      }
       element.innerHTML = `<span>${element.textContent.split(' ').join('</span>&nbsp;<span>')}</span>`;
       const words = element.querySelectorAll('span');
       for (let j = 0; j < words.length; j += 1) {
@@ -47,6 +54,7 @@ const splitText = () => {
           <span class="invisible-word">${char.textContent}</span>
         `;
       }
+      $(element).addClass('splitted');
     }
   }
 };
@@ -296,11 +304,11 @@ $(() => {
   load()
     .then(() => {
       let scroll = null;
-      let scrollListenerAdded = false;
       const onLocomotiveScroll = (e) => {
         const offsetTop = e.scroll.y;
         $(DOM.fixedLeftSide).toggleClass('scrolled', offsetTop > 100);
         const winHeight = $(window).height();
+        console.log(winHeight);
         if ($(DOM.brand.self).offset().top < winHeight) {
           animateBrand();
         }
@@ -351,19 +359,8 @@ $(() => {
             smooth: true,
           });
           animateTitle();
-        } else {
-          scroll.init();
         }
-        if (!scrollListenerAdded) {
-          scrollListenerAdded = true;
-          scroll.on('scroll', onLocomotiveScroll);
-        }
-      };
-      const destroyScroll = () => {
-        if (scroll) {
-          scroll.stop();
-          scroll.destroy();
-        }
+        scroll.on('scroll', onLocomotiveScroll);
       };
       const onWindowScroll = () => {
         $(DOM.mobileHeader).toggleClass('scrolled', !!$(window).scrollTop());
@@ -374,17 +371,33 @@ $(() => {
           $(DOM.scrollPlease).fadeIn();
         }
       };
-      const onWindowResize = () => {
-        if ($(window).width() <= 1024) {
-          destroyScroll();
-          $(window).on('scroll', onWindowScroll);
-        } else {
+      const initialize = () => {
+        if ($(window).width() > 1024) {
           initScroll();
-          $(window).off('scroll', onWindowScroll);
+        } else {
+          $(window).on('scroll', onWindowScroll);
         }
       };
-      onWindowResize();
-      $(window).on('resize', onWindowResize);
+      initialize();
+      $(window).on('resize', () => {
+        if (!$('html').hasClass('has-scroll-init')) {
+          $('.main-container').css('overflow', 'hidden');
+          splitText();
+          animateTitle();
+          animateBrand();
+          animateVToV();
+          animateTer();
+          animateGWhite();
+          animatePlans();
+          animateLand();
+          animateValues();
+          animateService();
+          animateSubService();
+          animateSafety();
+          animateNewNav();
+          animateNewDirection();
+        }
+      });
     });
 
   $('.feedback').on('modal:close', () => {

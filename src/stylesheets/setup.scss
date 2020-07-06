@@ -25,7 +25,7 @@ body {
   border-radius: 0;
   padding: 0;
   @include phone {
-    min-width: 340px;
+    min-width: none;
   }
 }
 .modal a.close-modal {

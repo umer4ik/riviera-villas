@@ -47,19 +47,22 @@
   &__bg {
     position: relative;
     z-index: 2;
-    background: url('../images/new-nav.png') 0 50% no-repeat;
-    background-size: cover;
     margin-left: calc(50% - 720px + 160px);
-    height: 760px;
+    height: 665px;
     @include faded-margin;
     @include tablet {
-      height: 500px;
+      height: auto;
       background-position: 50% 50%;
-      width: calc(100% - 25px);
       margin-left: 25px;
+      margin-right: 25px;
+      width: auto;
     }
-    @include phone {
-      height: 175px;
+    img {
+      height: 100%;
+      @include tablet {
+        height: auto;
+        width: 100%;
+      }
     }
   }
 }

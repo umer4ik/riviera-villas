@@ -12,6 +12,9 @@
     height: 86px;
     width: 86px;
     z-index: 1;
+    @include laptop {
+      left: 25px;
+    }
     .scrolled & {
       opacity: 1;
     }
@@ -22,6 +25,9 @@
     position: absolute;
     left: 40px;
     z-index: 2;
+    @include laptop {
+      left: 25px;
+    }
     .scrolled & {
       opacity: 0;
     }
