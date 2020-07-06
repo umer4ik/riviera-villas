@@ -418,7 +418,10 @@ $(() => {
   $('.input__field').on('blur', function onInputBlur() {
     $(this).closest('.input').removeClass('focus');
   });
-  $('.input__field').on('input', function onInputInput() {
+  $('.input__field').on('input', function onInputInput(e) {
+    if ($(this).attr('name') === 'phone') {
+      $(this).val(e.target.value.replace(/[^\d()+-]/g, ''));
+    }
     $(this).closest('.input').toggleClass('has-value', !!$(this).val());
     $(this).closest('.input').removeClass('invalid');
   });
