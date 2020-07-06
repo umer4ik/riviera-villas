@@ -308,7 +308,6 @@ $(() => {
         const offsetTop = e.scroll.y;
         $(DOM.fixedLeftSide).toggleClass('scrolled', offsetTop > 100);
         const winHeight = $(window).height();
-        console.log(winHeight);
         if ($(DOM.brand.self).offset().top < winHeight) {
           animateBrand();
         }
@@ -464,7 +463,6 @@ $(() => {
     $(DOM.services.navButtons).removeClass('active');
     const serviceIndex = $el.attr('data-service');
     const service = $(DOM.services.listItems).filter(`[data-service="${serviceIndex}"]`);
-    console.log(service.get(0));
     $el.addClass('active');
     service.addClass('active');
   });
