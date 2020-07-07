@@ -1,0 +1,284 @@
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  z-index: 5;
+  color: #fff;
+  &__container {
+    position: absolute;
+    width: 723px;
+    background-color: $blue;
+    height: 100vh;
+    z-index: 2;
+    transition: transform .2s $easing;
+    transform: translate(-900px, 0);
+    .open & {
+      transform: none;
+    }
+    @include phone {
+      width: 100%;
+    }
+  }
+  &__inner {
+    overflow: auto;
+    min-height: 100vh;
+    @include tablet {
+      height: 100vh;
+    }
+  }
+  &__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    right: 0;
+    top: 0;
+    background-color: rgba(#000, .4);
+    transform: translate(100%, 0);
+    transition: transform .2s $easing;
+    .open & {
+      transform: none;
+    }
+  }
+  &__header {
+    padding: 60px;
+    text-align: center;
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      opacity: 0.2;
+      background-color: #e5e5e5;
+      left: 40px;
+      width: calc(100% - 80px);
+      bottom: 0;
+      height: 2px;
+      @include phone {
+        left: 25px;
+        width: calc(100% - 50px);
+      }
+    }
+    @include phone {
+      text-align: left;
+      padding: 25px;
+    }
+  }
+  &__logo {
+    @include phone {
+      width: 102px;
+      height: 29px;
+    }
+  }
+  &__list {
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 40px;
+    @include phone {
+      padding: 25px;
+    }
+  }
+  &__item {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    cursor: pointer;
+  }
+  &__start-index {
+    width: 16px;
+    height: 20px;
+    @include helvetica;
+    font-size: 13px;
+    overflow: hidden;
+    position: relative;
+    margin-top: 2px;
+    @include phone {
+      display: none;
+    }
+  }
+  &__start-index-arrow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform .35s $easing;
+    transform: translate(-100%, 0);
+    .menu__item:hover & {
+      @include wider-than-phone {
+        transform: none;
+      }
+    }
+  }
+  &__start-index-number {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    transition: transform .35s $easing;
+    left: 0;
+    .menu__item:hover & {
+      @include wider-than-phone {
+        transform: translate(0, 100%);
+      }
+    }
+  }
+  &__item-title {
+    font-size: 27px;
+    line-height: 110%;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-left: 31px;
+    transition: transform .35s $easing;
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      width: 87px;
+      height: 1px;
+      background-color: #fff;
+      left: -115px;
+      top: 15px;
+      transform: scaleX(0);
+      transform-origin: 100% 50%;
+      transition: transform .35s $easing;
+    }
+    .menu__item:hover & {
+      @include wider-than-phone {
+        transform: translate(115px, 0);
+        &::after {
+          transform: none;
+        }
+      }
+    }
+    @include phone {
+      font-size: 16px;
+      line-height: 110%;
+      letter-spacing: 0.04em;
+      margin-left: 0;
+    }
+  }
+  &__end-index {
+    font-size: 27px;
+    line-height: 110%;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-left: auto;
+    opacity: 0;
+    transition: all .35s $easing;
+    @include wider-than-phone {
+      .menu__item:hover & {
+        opacity: 1;
+      }
+    }
+    @include phone {
+      display: none;
+    }
+  }
+  &__footer {
+    padding: 60px 40px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &::before {
+      content: '';
+      position: absolute;
+      opacity: 0.2;
+      background-color: #e5e5e5;
+      left: 40px;
+      width: calc(100% - 80px);
+      top: 0;
+      height: 2px;
+      @include phone {
+        left: 25px;
+        width: calc(100% - 50px);
+      }
+    }
+    @include phone {
+      text-align: left;
+      padding: 25px;
+    }
+  }
+  &__footer-link {
+    color: #fff;
+    margin-right: 16px;
+    &::before {
+      background-color: #fff;
+    }
+    &--divider {
+      margin-left: auto;
+      margin-right: 16px;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  &__close {
+    position: absolute;
+    cursor: pointer;
+    width: 68px;
+    height: 68px;
+    background-color: #fff;
+    background-image: url('../images/cross.svg');
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    top: calc(50vh - 34px);
+    right: -90px;
+    background-size: 12px;
+    @include phone {
+      right: 25px;
+      top: 25px;
+      width: 39px;
+      height: 39px;
+      background-color: transparent;
+      border: 1px solid rgba(#fff, .1);
+      background-image: url('../images/cross-white.svg');
+      z-index: 6;
+    }
+  }
+}
+
+.c-scrollbar-menu {
+  position: absolute;
+  right: auto;
+  left: 710px;
+  top: 0;
+  width: 11px;
+  height: 100vh;
+  transform-origin: center right;
+  transition: transform 0.3s, opacity 0.3s;
+  opacity: 0;
+  z-index: 6;
+  pointer-events: none;
+  @include phone {
+    left: calc(100% - 20px);
+  }
+  &:hover {
+    transform: scaleX(1.45);
+  }
+  .menu.open ~ & {
+    &:hover,
+    .has-scroll-scrolling &,
+    .has-scroll-dragging & {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+}
+.c-scrollbar-menu_thumb {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: black;
+  opacity: 0.5;
+  width: 7px;
+  border-radius: 10px;
+  margin: 2px;
+  cursor: grab;
+
+  .has-scroll-dragging & {
+    cursor: grabbing;
+  }
+}

@@ -301,6 +301,17 @@ $(() => {
       .to(img, marginAnimationConfig, '-=0.5');
   };
 
+  const showFormModal = () => {
+    $('.feedback').modal({
+      fadeDuration: 200,
+    });
+    if ($(window).width() > 1024) {
+      setTimeout(() => {
+        $('[name="name"]').focus();
+      }, 400);
+    }
+  };
+
   load()
     .then(() => {
       let scroll = null;
@@ -362,6 +373,11 @@ $(() => {
             el: document.querySelector('[data-scroll-container]'),
             smooth: true,
           });
+          new LocomotiveScroll({
+            el: document.querySelector('.menu__inner'),
+            smooth: true,
+            scrollbarClass: 'c-scrollbar-menu',
+          });
           animateTitle();
         }
         scroll.on('scroll', onLocomotiveScroll);
@@ -389,31 +405,56 @@ $(() => {
         }
       };
       initialize();
+      const animateAll = () => {
+        animateTitle();
+        animateBrand();
+        animateVToV();
+        animateTer();
+        animateGWhite();
+        animatePlans();
+        animateLand();
+        // animateValues();
+        animateService();
+        animateSubService();
+        animateSafety();
+        animateNewNav();
+        animateNewDirection();
+      };
       $(window).on('resize', () => {
         if (!$('html').hasClass('has-scroll-init')) {
           $('.main-container').css('overflow', 'hidden');
           splitText();
-          animateTitle();
-          animateBrand();
-          animateVToV();
-          animateTer();
-          animateGWhite();
-          animatePlans();
-          animateLand();
-          // animateValues();
-          animateService();
-          animateSubService();
-          animateSafety();
-          animateNewNav();
-          animateNewDirection();
+          animateAll();
         }
       });
       $(DOM.up).on('click', () => {
         if (scroll) {
-          scroll.scrollTo('.reloading__container');
+          scroll.scrollTo('top');
         } else {
           window.scrollTo(0, 0);
         }
+      });
+      $(DOM.menuTriggers).on('click', () => {
+        animateAll();
+        $(DOM.menu.self).addClass('open');
+      });
+      $([DOM.menu.close, DOM.menu.overlay]).on('click', () => {
+        $(DOM.menu.self).removeClass('open');
+      });
+      const scrollToTarget = (selector) => {
+        const $el = $(selector);
+        window.scrollTo(0, $el.offset().top);
+      };
+      $(DOM.menu.items).on('click', ({ currentTarget }) => {
+        const $el = $(currentTarget);
+        const scrollTo = scroll ? scroll.scrollTo.bind(scroll) : scrollToTarget;
+        const scrollTarget = $el.attr('data-scroll-to');
+        if (scrollTarget) {
+          scrollTo($el.attr('data-scroll-to'));
+        } else {
+          showFormModal();
+        }
+        $(DOM.menu.self).removeClass('open');
       });
     });
 
@@ -422,16 +463,7 @@ $(() => {
     $('.form input, .form textarea').val('');
   });
 
-  $('button.button:not(.button--blue)').on('click', () => {
-    $('.feedback').modal({
-      fadeDuration: 200,
-    });
-    if ($(window).width() > 1024) {
-      setTimeout(() => {
-        $('[name="name"]').focus();
-      }, 400);
-    }
-  });
+  $('button.button:not(.button--blue)').on('click', showFormModal);
   $('.input__field').on('focus', function onInputFocus() {
     $(this).closest('.input').addClass('focus');
   });

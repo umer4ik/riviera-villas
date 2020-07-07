@@ -8,6 +8,13 @@
   border-radius: 50%;
   border: 1px solid #DBDBDB;
   z-index: 2;
+  cursor: pointer;
+  transform-origin: 50% 50%;
+  transition: transform .7s $easing, background-color .7s $easing;
+  &:hover {
+    background-color: rgba(#fff, .3);
+    transform: scale(1.2);
+  }
   &__serif {
     position: absolute;
     width: 15px;

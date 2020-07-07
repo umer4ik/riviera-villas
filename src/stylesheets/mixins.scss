@@ -1,4 +1,4 @@
-$phone-width: 767px;
+$phone-width: 768px;
 $tablet-landscape-width: 1024px;
 $tablet-portrait-width: 768px;
 $desktop-width: 1440px;
@@ -35,6 +35,11 @@ $red: #e45959;
 }
 @mixin tablet {
   @media (max-width: $tablet-landscape-width) {
+    @content;
+  }
+}
+@mixin wider-than-phone {
+  @media (min-width: #{$phone-width + 1px}) {
     @content;
   }
 }

@@ -7,6 +7,7 @@ module.exports = {
     "rules": {
       "linebreak-style": 0,
       "no-console": "off",
-      "no-floating-decimal": 0
+      "no-floating-decimal": 0,
+      "no-new": 0
     }
 };

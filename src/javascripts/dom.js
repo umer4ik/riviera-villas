@@ -4,6 +4,13 @@ const getDOM = () => ({
   fixedLeftSide: qs('.fixed-left-side'),
   reloadingInner: qs('.reloading__inner'),
   scrollPlease: qs('.scroll-please'),
+  menuTriggers: qsa('.menu-trigger, span.mobile-header__link'),
+  menu: {
+    self: qs('.menu'),
+    close: qs('.menu__close'),
+    overlay: qs('.menu__overlay'),
+    items: qsa('.menu__item'),
+  },
   up: qs('.up'),
   mobileHeader: qs('.mobile-header'),
   brand: {
