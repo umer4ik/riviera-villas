@@ -187,11 +187,11 @@ $(() => {
   };
 
   const animateLand = () => {
-    const {
-      button,
-    } = DOM.land;
-    const tl = new TimelineLite();
-    tl.to(button, animationConfig);
+    // const {
+    //   button,
+    // } = DOM.land;
+    // const tl = new TimelineLite();
+    // tl.to(button, animationConfig);
   };
 
   const animateE = () => {
