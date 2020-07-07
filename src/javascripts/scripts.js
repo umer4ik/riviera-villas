@@ -307,12 +307,14 @@ $(() => {
       const onLocomotiveScroll = (e) => {
         const offsetTop = e.scroll.y;
         $(DOM.fixedLeftSide).toggleClass('scrolled', offsetTop > 100);
-        const winHeight = $(window).height();
-        if ($(DOM.brand.self).offset().top < winHeight) {
-          animateBrand();
+        if (offsetTop > 1000) {
           $(DOM.up).fadeIn();
         } else {
           $(DOM.up).fadeOut();
+        }
+        const winHeight = $(window).height();
+        if ($(DOM.brand.self).offset().top < winHeight) {
+          animateBrand();
         }
         if ($(DOM.vToV.self).offset().top < winHeight) {
           animateVToV();
@@ -420,7 +422,7 @@ $(() => {
     $('.form input, .form textarea').val('');
   });
 
-  $('.button:not(.button--blue)').on('click', () => {
+  $('button.button:not(.button--blue)').on('click', () => {
     $('.feedback').modal({
       fadeDuration: 200,
     });
