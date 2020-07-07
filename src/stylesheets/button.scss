@@ -7,8 +7,13 @@
   color: $black;
   font-size: 15px;
   border: none;
-  cursor: pointer;
   margin-top: 30px;
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+  &:disabled {
+    cursor: not-allowed;
+  }
   @include tablet {
     font-size: 14px;
     height: 60px;
@@ -45,7 +50,7 @@
     &::after {
       transform: translate(0, 100%);
     }
-    .button:hover & {
+    .button:hover:not(:disabled) & {
       &::before {
         transform: translate(0, -100%);
       }

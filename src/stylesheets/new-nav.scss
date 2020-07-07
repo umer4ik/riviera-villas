@@ -22,10 +22,10 @@
     margin-bottom: 67px;
     @include section;
     @include laptop {
-      padding-left: 25px;
       padding-right: 25px;
     }
     @include tablet {
+      padding-left: 25px;
       display: block;
       margin-bottom: 45px;
     }
@@ -50,6 +50,9 @@
     margin-left: calc(50% - 720px + 160px);
     height: 665px;
     @include faded-margin;
+    @include laptop {
+      margin-left: 160px;
+    }
     @include tablet {
       height: auto;
       background-position: 50% 50%;
@@ -59,7 +62,7 @@
     }
     img {
       height: 100%;
-      @include tablet {
+      @include laptop {
         height: auto;
         width: 100%;
       }

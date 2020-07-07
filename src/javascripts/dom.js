@@ -4,6 +4,7 @@ const getDOM = () => ({
   fixedLeftSide: qs('.fixed-left-side'),
   reloadingInner: qs('.reloading__inner'),
   scrollPlease: qs('.scroll-please'),
+  up: qs('.up'),
   mobileHeader: qs('.mobile-header'),
   brand: {
     self: qs('.brand'),
@@ -50,13 +51,13 @@ const getDOM = () => ({
     bottomLine: qsa('.e__line--rotate .invisible-char'),
     button: qs('.e .button'),
   },
-  values: {
-    self: qs('.values'),
-    list: qs('.values__list'),
-    title: qsa('.values__title .invisible-char'),
-    description: qs('.values__description'),
-    listItems: qsa('.values__list .value'),
-  },
+  // values: {
+  //   self: qs('.values'),
+  //   list: qs('.values__list'),
+  //   title: qsa('.values__title .invisible-char'),
+  //   description: qs('.values__description'),
+  //   listItems: qsa('.values__list .value'),
+  // },
   services: {
     self: qs('.services'),
     title: qsa('.services__title .invisible-char'),

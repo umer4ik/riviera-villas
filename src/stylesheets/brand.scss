@@ -2,8 +2,10 @@
   @include section;
   padding-left: 160px;
   @include laptop {
-    padding-left: 25px;
     padding-right: 25px;
+  }
+  @include tablet {
+    padding-left: 25px;
   }
   &__inner {
     position: relative;

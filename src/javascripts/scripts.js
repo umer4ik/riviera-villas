@@ -211,18 +211,18 @@ $(() => {
       .to(button, animationConfig, '-=0.5');
   };
 
-  const animateValues = () => {
-    const {
-      title,
-      description,
-      listItems,
-    } = DOM.values;
-    const tl = new TimelineLite();
-    tl
-      .to(title, animationConfig)
-      .to(description, animationConfig, '-=0.5')
-      .to(listItems, { ...animationConfig, stagger: 0.1 }, '-=0.1');
-  };
+  // const animateValues = () => {
+  //   const {
+  //     title,
+  //     description,
+  //     listItems,
+  //   } = DOM.values;
+  //   const tl = new TimelineLite();
+  //   tl
+  //     .to(title, animationConfig)
+  //     .to(description, animationConfig, '-=0.5')
+  //     .to(listItems, { ...animationConfig, stagger: 0.1 }, '-=0.1');
+  // };
 
   const animateService = () => {
     const {
@@ -310,6 +310,9 @@ $(() => {
         const winHeight = $(window).height();
         if ($(DOM.brand.self).offset().top < winHeight) {
           animateBrand();
+          $(DOM.up).fadeIn();
+        } else {
+          $(DOM.up).fadeOut();
         }
         if ($(DOM.vToV.self).offset().top < winHeight) {
           animateVToV();
@@ -326,9 +329,9 @@ $(() => {
         if ($(DOM.land.self).offset().top < winHeight) {
           animateLand();
         }
-        if ($(DOM.values.self).offset().top < winHeight) {
-          animateValues();
-        }
+        // if ($(DOM.values.self).offset().top < winHeight) {
+        //   animateValues();
+        // }
         if ($(DOM.services.self).offset().top < winHeight) {
           animateService();
         }
@@ -363,6 +366,12 @@ $(() => {
       };
       const onWindowScroll = () => {
         $(DOM.mobileHeader).toggleClass('scrolled', !!$(window).scrollTop());
+        if ($(DOM.brand.self).offset().top < $(window).scrollTop()) {
+          animateBrand();
+          $(DOM.up).fadeIn();
+        } else {
+          $(DOM.up).fadeOut();
+        }
         if ($(DOM.e.self).offset().top < $(window).height()) {
           animateE();
           $(DOM.scrollPlease).fadeOut();
@@ -389,12 +398,19 @@ $(() => {
           animateGWhite();
           animatePlans();
           animateLand();
-          animateValues();
+          // animateValues();
           animateService();
           animateSubService();
           animateSafety();
           animateNewNav();
           animateNewDirection();
+        }
+      });
+      $(DOM.up).on('click', () => {
+        if (scroll) {
+          scroll.scrollTo('.reloading__container');
+        } else {
+          window.scrollTo(0, 0);
         }
       });
     });
@@ -408,9 +424,11 @@ $(() => {
     $('.feedback').modal({
       fadeDuration: 200,
     });
-    setTimeout(() => {
-      $('[name="name"]').focus();
-    }, 400);
+    if ($(window).width() > 1024) {
+      setTimeout(() => {
+        $('[name="name"]').focus();
+      }, 400);
+    }
   });
   $('.input__field').on('focus', function onInputFocus() {
     $(this).closest('.input').addClass('focus');
@@ -456,7 +474,7 @@ $(() => {
     });
   };
 
-  $(DOM.values.list).on('click', '.value', showDescriptionModal);
+  // $(DOM.values.list).on('click', '.value', showDescriptionModal);
   $(DOM.subService.listItems).on('click', showDescriptionModal);
 
   $(DOM.services.navButtons).on('click', ({ currentTarget }) => {

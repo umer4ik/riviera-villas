@@ -15,8 +15,10 @@
     display: flex;
     align-items: flex-start;
     @include laptop {
-      padding-left: 25px;
       padding-right: 25px;
+    }
+    @include tablet {
+      padding-left: 25px;
     }
     @include tablet {
       display: block;

@@ -13,8 +13,10 @@
     @include section;
     padding-left: 160px;
     @include laptop {
-      padding-left: 25px;
       padding-right: 25px;
+    }
+    @include tablet {
+      padding-left: 25px;
     }
   }
   &__row {
@@ -41,6 +43,9 @@
   &__title {
     font-size: 50px;
     margin-bottom: 17px;
+    @include laptop {
+      font-size: 40px;
+    }
     @include tablet {
       font-size: 29px;
     }

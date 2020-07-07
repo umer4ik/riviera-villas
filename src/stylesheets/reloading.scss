@@ -19,10 +19,10 @@
     transform: translate(0, -100%);
     padding-right: 40px;
     @include laptop {
-      padding-left: 25px;
       padding-right: 25px;
     }
     @include tablet {
+      padding-left: 25px;
       padding-top: 100px;
       position: relative;
       top: 0;
@@ -36,6 +36,10 @@
     justify-content: space-between;
     margin-bottom: 68px;
     max-width: 543px;
+    @include laptop {
+      height: 120px;
+      max-width: 449px;
+    }
     @include phone {
       height: 100px;
       max-width: 375px;
@@ -48,6 +52,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @include laptop-only {
+      transform: scale(0.82);
+      transform-origin: 0 100%;
+    }
     img {
       @include wider-than-tablet {
         opacity: 0;
@@ -79,12 +87,13 @@
     overflow: hidden;
     @include hidden-bg;
     @include laptop {
-      margin-left: 25px;
       width: 100%;
       height: 100vh;
+      margin-left: 160px;
     }
     @include tablet {
       height: 70vh;
+      margin-left: 25px;
       background-position: 60% 0;
       margin-top: 20px;
     }
