@@ -4,7 +4,7 @@ const getDOM = () => ({
   fixedLeftSide: qs('.fixed-left-side'),
   reloadingInner: qs('.reloading__inner'),
   scrollPlease: qs('.scroll-please'),
-  menuTriggers: qsa('.menu-trigger, span.mobile-header__link'),
+  menuTriggers: qsa('.menu-trigger, span.call-menu'),
   menu: {
     self: qs('.menu'),
     close: qs('.menu__close'),

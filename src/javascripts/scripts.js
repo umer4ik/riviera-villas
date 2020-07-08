@@ -463,7 +463,7 @@ $(() => {
     $('.form input, .form textarea').val('');
   });
 
-  $('button.button:not(.button--blue)').on('click', showFormModal);
+  $('button.button:not(.button--blue), .call-form').on('click', showFormModal);
   $('.input__field').on('focus', function onInputFocus() {
     $(this).closest('.input').addClass('focus');
   });
