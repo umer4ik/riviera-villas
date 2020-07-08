@@ -6,11 +6,11 @@
   right: 40px;
   bottom: 40px;
   border-radius: 50%;
-  z-index: 3;
   overflow: hidden;
   transition: background-color .35s $easing;
   cursor: pointer;
   display: none;
+  z-index: 22;
   @include tablet {
     bottom: 20px;
     right: 20px;
