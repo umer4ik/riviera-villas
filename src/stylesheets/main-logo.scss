@@ -8,7 +8,7 @@
     color: $black;
     font-size: 15px;
     text-decoration: none;
-    opacity: 0;
+    opacity: 0.01;
     height: 86px;
     width: 86px;
     z-index: 1;
@@ -29,7 +29,7 @@
       left: 25px;
     }
     .scrolled & {
-      opacity: 0;
+      opacity: 0.01;
     }
   }
 }

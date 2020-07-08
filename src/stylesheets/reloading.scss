@@ -58,7 +58,7 @@
     }
     img {
       @include wider-than-tablet {
-        opacity: 0;
+        opacity: 0.01;
         transform: translate(0, 100%);
       }
       transform-origin: 0 0;

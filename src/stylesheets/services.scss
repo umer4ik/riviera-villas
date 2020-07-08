@@ -62,7 +62,10 @@
     border-radius: 50%;
     border: 2px solid rgba(#000, .1);
     color: #313131;
-    transition: all .35s $easing;
+    transition:
+      background-color .35s $easing,
+      border-color .35s $easing,
+      color .35s $easing;
     font-size: 22px;
     cursor: pointer;
     margin-right: 15px;

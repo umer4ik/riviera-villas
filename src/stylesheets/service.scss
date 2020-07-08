@@ -24,7 +24,7 @@
     transform: translate(100%, 0);
     display: flex;
     justify-content: flex-end;
-    opacity: 0;
+    opacity: 0.01;
     &--1 {
       background-color: #e6e8e5;
     }
@@ -93,7 +93,7 @@
     }
   }
   &__count {
-    opacity: 0;
+    opacity: 0.01;
     transition: opacity .7s $easing;
     transition-delay: .1s;
     .service:hover & {
@@ -107,7 +107,7 @@
     }
   }
   &__description {
-    opacity: 0;
+    opacity: 0.01;
     transition: opacity .7s $easing;
     transition-delay: .1s;
     .service:hover & {
@@ -130,7 +130,7 @@
       @include wider-than-tablet {
         transition-delay: 0s;
         transform: translate(100px, 0);
-        opacity: 0;
+        opacity: 0.01;
       }
     }
     @include tablet {

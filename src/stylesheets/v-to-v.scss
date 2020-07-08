@@ -73,7 +73,7 @@
     > img {
       vertical-align: middle;
       width: 100%;
-      transition: all .7s $easing;
+      transition: transform .7s $easing;
     }
   }
   &__video-place {
@@ -92,7 +92,7 @@
     border-radius: 50%;
     z-index: 1;
     background-color: #fff;
-    transition: all .35s $easing;
+    transition: transform .35s $easing;
     img {
       position: absolute;
       top: 50%;
@@ -119,7 +119,7 @@
     line-height: 95%;
     text-transform: uppercase;
     display: block;
-    transition: all .35s $easing .2s;
+    transition: transform .35s $easing .2s;
     @include tablet {
       font-size: 70px;
     }
@@ -131,7 +131,7 @@
     line-height: 110%;
     letter-spacing: 0.6em;
     text-transform: uppercase;
-    transition: all .35s $easing .1s;
+    transition: transition .35s $easing .1s;
     margin-top: 10px;
     @include tablet {
       font-size: 11px;
@@ -146,7 +146,7 @@
     letter-spacing: 0.3em;
     text-transform: uppercase;
     margin-right: 29px;
-    transition: all .35s $easing;
+    transition: transition .35s $easing;
     margin-top: 45px;
     @include tablet {
       font-size: 11px;

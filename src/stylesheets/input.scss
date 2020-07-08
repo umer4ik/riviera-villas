@@ -30,7 +30,11 @@
     opacity: 0.3;
     top: 25px;
     left: 30px;
-    transition: all .35s $easing;
+    transition:
+      transform .35s $easing,
+      font-size .35s $easing,
+      color .35s $easing,
+      opacity .35s $easing;
     .has-value &,
     .focus & {
       transform: translate(-30px, -45px);

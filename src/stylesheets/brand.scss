@@ -23,7 +23,7 @@
     display: none;
     @include wider-than-tablet {
       display: block;
-      opacity: 0;
+      opacity: 0.01;
       position: absolute;
       left: 0;
       top: -300px;

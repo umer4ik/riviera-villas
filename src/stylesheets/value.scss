@@ -112,7 +112,7 @@
     line-height: 110%;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    transition: all .35s $easing;
+    transition: transform .35s $easing, color .35s $easing;
     .value:hover & {
       @include wider-than-tablet {
         color: $gold;
@@ -124,7 +124,7 @@
     }
     svg path {
       fill: $black;
-      transition: all .35s $easing;
+      transition: fill .35s $easing, stroke .35s $easing;
     }
     @include tablet {
       font-size: 11px;

@@ -57,22 +57,19 @@ $red: #e45959;
 
 @mixin hidden-bg {
   @include wider-than-tablet {
-    // transform: translate(0, 100px);
-    opacity: 0;
+    opacity: 0.01;
   }
 }
 
 @mixin faded {
   @include wider-than-tablet {
-    // transform: translate(0, 100px);
-    opacity: 0;
+    opacity: 0.01;
   }
 }
 
 @mixin faded-margin {
   @include wider-than-tablet {
-    // margin-top: 100px;
-    opacity: 0;
+    opacity: 0.01;
   }
 }
 
