@@ -2,6 +2,9 @@
   position: relative;
   font-size: 18px;
   @include helvetica;
+  @include tablet {
+    margin-top: 20px;
+  }
   &__field {
     display: block;
     height: 70px;
@@ -9,6 +12,10 @@
     border-radius: 0;
     width: 100%;
     padding: 25px 30px;
+    @include tablet {
+      height: 60px;
+      font-size: 14px;
+    }
     &:focus,
     .has-value & {
       border: 1px solid rgba(0, 0, 0, 0.7);
@@ -21,6 +28,9 @@
       height: 172px;
       padding-bottom: 25px;
       resize: none;
+      @include tablet {
+        height: 86px;
+      }
     }
   }
   &__label {
@@ -35,12 +45,21 @@
       font-size .35s $easing,
       color .35s $easing,
       opacity .35s $easing;
+    @include tablet {
+      font-size: 14px;
+      top: 21px;
+    }
     .has-value &,
     .focus & {
       transform: translate(-30px, -45px);
       font-size: 15px;
       color: $black;
       opacity: 1;
+      @include tablet {
+        font-size: 15px;
+        opacity: 0;
+        transform: none;
+      }
     }
     .invalid & {
       color: $red;

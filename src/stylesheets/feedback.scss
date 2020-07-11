@@ -6,24 +6,50 @@
 }
 .feedback {
   width: 80vw;
-  max-width: 600px;
+  max-width: 90%;
   @media screen and (min-width: 1510px) {
     max-width: 1510px;
   }
+  @include tablet {
+    height: 90vh;
+    overflow: auto;
+    max-width: 100%;
+    width: 100%;
+  }
+  &__inner {
+    @include tablet {
+      height: 100%;
+      overflow: auto;
+    }
+  }
   &__img {
     width: 100%;
+    @include tablet {
+      height: 177px;
+      object-fit: cover;
+    }
   }
   &__row {
     padding: 40px;
     display: flex;
+    @include tablet {
+      flex-direction: column;
+      padding: 20px;
+    }
   }
   &__col {
     width: 50%;
     flex-grow: 1;
-    &:first-child {
-      @media screen and (max-width: 1509px) {
-        display: none;
+    + .feedback__col {
+      @include laptop {
+        padding: 10px;
       }
+      @include tablet {
+        padding: 0;
+      }
+    }
+    @include tablet {
+      width: 100%;
     }
   }
 }

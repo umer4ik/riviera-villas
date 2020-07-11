@@ -1,13 +1,17 @@
 .form {
-  @media screen and (min-width: 1510px) {
+  @include desktop {
     padding: 100px 30px 0;
+  }
+  @include tablet {
+    padding-top: 30px;
   }
   &__title {
     font-size: 40px;
     line-height: 100%;
     margin-bottom: 40px;
     @include tablet {
-      font-size: 29px;
+      font-size: 20px;
+      margin-bottom: 10px;
     }
   }
   &__row {
@@ -17,6 +21,18 @@
     margin-bottom: 30px;
     @include tablet {
       flex-wrap: wrap;
+      margin-bottom: 0;
+    }
+    &:last-child {
+      @include tablet {
+        text-align: center;
+        padding-top: 30px;
+      }
+      @include phone {
+        .button {
+          width: 100%;
+        }
+      }
     }
   }
   &__col {
@@ -26,9 +42,6 @@
     flex-grow: 1;
     @include tablet {
       width: 100%;
-      + .form__col {
-        margin-top: 30px;
-      }
     }
   }
 }

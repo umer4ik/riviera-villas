@@ -437,9 +437,11 @@ $(() => {
       $(DOM.menuTriggers).on('click', () => {
         animateAll();
         $(DOM.menu.self).addClass('open');
+        $(document.body).css('overflow', 'hidden');
       });
       $([DOM.menu.close, DOM.menu.overlay]).on('click', () => {
         $(DOM.menu.self).removeClass('open');
+        $(document.body).css('overflow', 'auto');
       });
       const scrollToTarget = (selector) => {
         const $el = $(selector);

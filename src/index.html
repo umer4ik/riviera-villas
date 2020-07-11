@@ -645,46 +645,48 @@
 
   </div>
   <div class="feedback modal">
-    <div class="feedback__row">
-      <div class="feedback__col">
-        <img src="images/modal.png" class="feedback__img" alt="">
-      </div>
-      <div class="feedback__col">
-        <form action="" class="form">
-          <div class="form__title">Записаться на просмотр</div>
-          <div class="form__row">
-            <div class="form__col">
-              <div class="input">
-                <label class="input__label" for="name">Имя</label>
-                <input type="text" id="name" name="name" class="input__field">
+    <div class="feedback__inner">
+      <div class="feedback__row">
+        <div class="feedback__col">
+          <img src="images/modal.png" class="feedback__img" alt="">
+        </div>
+        <div class="feedback__col">
+          <form action="" class="form">
+            <div class="form__title">Записаться на просмотр</div>
+            <div class="form__row">
+              <div class="form__col">
+                <div class="input">
+                  <label class="input__label" for="name">Имя</label>
+                  <input type="text" id="name" name="name" class="input__field">
+                </div>
+              </div>
+              <div class="form__col">
+                <div class="input">
+                  <label class="input__label" for="phone">Телефон</label>
+                  <input type="tel" id="phone" name="phone" class="input__field">
+                </div>
               </div>
             </div>
-            <div class="form__col">
-              <div class="input">
-                <label class="input__label" for="phone">Телефон</label>
-                <input type="tel" id="phone" name="phone" class="input__field">
+            <div class="form__row">
+              <div class="form__col">
+                <div class="input">
+                  <label class="input__label" for="comment">Комментарий</label>
+                  <textarea id="comment" name="comment" class="input__field input__field--textarea"></textarea>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="form__row">
-            <div class="form__col">
-              <div class="input">
-                <label class="input__label" for="comment">Комментарий</label>
-                <textarea id="comment" name="comment" class="input__field input__field--textarea"></textarea>
+            <div class="form__row">
+              <div class="form__col">
+                <button type="submit" class="button button--blue button--visible">
+                  <img src="images/half-eye-white.svg" alt="">
+                  <span class="button__button-text" data-text="Записаться">
+                    <span>Записаться</span>
+                  </span>
+                </button>
               </div>
             </div>
-          </div>
-          <div class="form__row">
-            <div class="form__col">
-              <button type="submit" class="button button--blue button--visible">
-                <img src="images/half-eye-white.svg" alt="">
-                <span class="button__button-text" data-text="Записаться">
-                  <span>Записаться</span>
-                </span>
-              </button>
-            </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
   </div>
